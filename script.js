@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.addEventListener("DOMContentLoaded", function() {
     // Function to create a promise that resolves after a random time between 1 and 3 seconds
     function createPromise() {
