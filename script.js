@@ -1,7 +1,9 @@
+// script.js
+
 document.addEventListener("DOMContentLoaded", function() {
     // Function to create a promise that resolves after a random time between 1 and 3 seconds
     function createPromise() {
-        const randomTime = Math.floor(Math.random() * 3000) + 1000; // Random time between 1000ms and 3000ms
+        const randomTime = Math.floor(Math.random() * 2000) + 1000; // Random time between 1000ms and 3000ms
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(randomTime / 1000); // Resolving with time in seconds
