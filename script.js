@@ -1,6 +1,6 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOMContentLoaded event fired.");
+
     // Function to create a promise that resolves after a random time between 1 and 3 seconds
     function createPromise() {
         const randomTime = Math.floor(Math.random() * 2000) + 1000; // Random time between 1000ms and 3000ms
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    console.log("Creating promises...");
     // Array to store promises
     const promises = [];
 
@@ -19,17 +20,23 @@ document.addEventListener("DOMContentLoaded", function() {
         promises.push(createPromise());
     }
 
+    console.log("Promises created:", promises.length);
+
     // Adding loading text
     const loadingRow = document.createElement("tr");
+    loadingRow.setAttribute("id", "loading"); // Add the ID "loading" to the loading row
     const loadingCell = document.createElement("td");
     loadingCell.setAttribute("colspan", "2");
     loadingCell.textContent = "Loading...";
     loadingRow.appendChild(loadingCell);
     document.getElementById("output").appendChild(loadingRow);
 
+    console.log("Loading element added to DOM.");
+
     // Using Promise.all to wait for all promises to resolve
     Promise.all(promises)
         .then(results => {
+            console.log("All promises resolved:", results);
             // Removing loading text
             document.getElementById("output").removeChild(loadingRow);
 
